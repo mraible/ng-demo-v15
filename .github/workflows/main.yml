@@ -9,10 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Use Node 16
+      - name: Use Node 18
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
       - name: Install latest Chrome
         run: |
           sudo apt update
@@ -27,4 +27,4 @@ jobs:
         with:
           start: npm start
           install: false
-          wait-on: 'http://localhost:4200'
+          wait-on: 'http://[::1]:8000/'
