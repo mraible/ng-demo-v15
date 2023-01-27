@@ -21,9 +21,9 @@ export class SearchService {
     }
     return this.getAll().pipe(
       map((data: any) => data
-        .map(item => !!localStorage['person' + item.id] ?
+        .map((item: any) => !!localStorage['person' + item.id] ?
           JSON.parse(localStorage['person' + item.id]) : item)
-        .filter(item => JSON.stringify(item).toLowerCase().includes(q))
+        .filter((item: any) => JSON.stringify(item).toLowerCase().includes(q))
       ));
   }
 
@@ -32,7 +32,7 @@ export class SearchService {
       if (localStorage['person' + id]) {
         return JSON.parse(localStorage['person' + id]);
       }
-      return all.find(e => e.id === id);
+      return all.find((e: any) => e.id === id);
     }));
   }
 
